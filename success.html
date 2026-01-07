@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Success</title>
+<style>
+body { font-family: Arial; background:black; color:#00ff00; display:flex; justify-content:center; align-items:center; height:100vh; font-size:24px; margin:0; text-align:center; }
+</style>
+</head>
+<body>
+<div>
+<h2>Access Granted!</h2>
+<p>Redirecting to PDF in <span id="count">5</span> seconds...</p>
+</div>
+
+<script>
+let count = 5;
+const timer = setInterval(()=>{
+    count--;
+    document.getElementById("count").innerText = count;
+    if(count<=0){
+        clearInterval(timer);
+        window.location.href="pdf.html";
+    }
+},1000);
+</script>
+</body>
+</html>

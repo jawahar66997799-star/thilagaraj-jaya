@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Details</title>
+<style>
+body { font-family: Arial; background: #f2f2f2; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+.box { background:white; padding:25px; width:90%; max-width:350px; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.2); text-align:center; }
+input, button { width:100%; padding:12px; margin:10px 0; font-size:16px; box-sizing:border-box; }
+button { background:#4CAF50; color:white; border:none; border-radius:6px; cursor:pointer; }
+.error { color:red; display:none; margin-top:10px; }
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Enter Your Details</h2>
+<input id="name" placeholder="Full Name">
+<input id="phone" placeholder="Phone Number">
+<button onclick="nextPage()">Continue</button>
+<div class="error" id="error">Please enter valid details</div>
+</div>
+
+<script>
+function nextPage(){
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    if(name=="" || phone.length<8){
+        document.getElementById("error").style.display = "block";
+        return;
+    }
+
+    localStorage.setItem("userName", name);
+    localStorage.setItem("userPhone", phone);
+
+    window.location.href = "otp.html";
+}
+</script>
+</body>
+</html>
